@@ -21,7 +21,7 @@ public class App {
 		try {
 			
 			//Definindo o URL
-			URL url = new URL("https://imdb-api.com/top-250-movies");
+			URL url = new URL("https://imdb-api.com/en/API/Top250Movies/k_kp06vrvi");
 			//Abrindo a conexão e lançando uma catch clause
 			connection = (HttpURLConnection) url.openConnection();
 			
@@ -36,10 +36,10 @@ public class App {
 			
 			//Verificando a resposta do endpoint	
 			if (status > 299) {
-				reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+			reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
 				
-				while((line = reader.readLine()) != null) {
-					responseContent.append(line);
+			while((line = reader.readLine()) != null) {
+			responseContent.append(line);
 				}
 				 reader.close();
 			} else {
@@ -57,7 +57,7 @@ public class App {
 			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} finally {
 			connection.disconnect();
